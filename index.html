@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+.code{width:97%;
+padding:5px;
+font-weight:bold;
+outline:none;
+border:2px solid red;
+}
+.htmlC{
+padding:5px;
+height:80px}
+.cssC{
+height:80px}
+.jsC{
+height:70px}
+.result{
+width:100%;
+height:120px;
+border:2px solid green;
+}
+span{font-weight:bold;
+color:orange}
+
+</style>
+
+</head>
+<body>
+  <textarea class="htmlC code" id="htmlCode" placeholder="HTML Code" 
+            oninput="showPreview()"></textarea>
+  <textarea class="cssC code" id="cssCode" placeholder="CSS Code" 
+            oninput="showPreview()"></textarea>
+            
+  <textarea class="jsC code" id="jsCode" placeholder="JavaScript Code" 
+            oninput="showPreview()"></textarea>				
+
+<p></p>
+            <span>Live Preview</span>
+  <iframe class="result" id="preview-window"></iframe>
+</body>
+
+
+<script type="text/javascript">
+
+function showPreview(){
+  var htmlCode = document.getElementById("htmlCode").value;
+  var cssCode = "<style>"+document.getElementById("cssCode").value+"</style>";
+  var jsCode = "<scri"+"pt>"+document.getElementById("jsCode").value+"</scri"+"pt>";
+  var frame = document.getElementById("preview-window").contentWindow.document;
+  frame.open();
+  frame.write(htmlCode+cssCode+jsCode);
+  frame.close();
+}
+
+</script>
+</html>
